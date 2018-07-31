@@ -52,8 +52,10 @@ def do_pack():
     output = 'web_static packed: versions/{} -> {}'.format(file_, file_size)
     try:
         print(output+'Bytes')
+        return file_
     except:
         return None
+
 
 def deploy():
     """
