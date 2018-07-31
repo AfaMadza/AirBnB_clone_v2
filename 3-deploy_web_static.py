@@ -13,6 +13,7 @@ env.hosts = ["35.237.246.199", "35.196.144.206"]
 env.user = 'ubuntu'
 env.key_filename = '~/.ssh/holberton'
 
+
 def do_deploy(archive_path):
     """
     Uploads archive to /tmp/ directory of server and uncompresses
@@ -50,11 +51,10 @@ def do_pack():
     msg += operations.local('tar -czvf {} web_static'.format(file_))
     file_size = os.stat('{}'.format(file_)).st_size
     output = 'web_static packed: versions/{} -> {}'.format(file_, file_size)
-    try:
+    if file_:
         print(output+'Bytes')
         return file_
-    except:
-        return None
+    return None
 
 
 def deploy():
