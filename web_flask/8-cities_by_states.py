@@ -2,12 +2,8 @@
 """
 This module contains a function that starts a Flask web app
 """
-import sys
-import os
-sys.path.append(os.getcwd())
 from flask import Flask, render_template
 from models import storage
-from models.state import State
 
 
 app = Flask(__name__)
@@ -19,9 +15,19 @@ def states_list():
     """
     Returns State data from database and insert into template
     """
-    state_inst = storage.all('State').values()
+    state_inst = storage.all('States').values()
     state_data = dict([state.name, state.id] for state in state_inst)
     return render_template('7-states_list.html', state_data=state_data)
+
+
+@app.route('/cities_by_states')
+def display_cities():
+    """
+    Returns State data from database and insert into template
+    """
+    state_inst = storage.all('States').values()
+    state_data = dict([state.name, state] for state in state_inst)
+    return render_template('8-cities_by_states.html', state_data=state_data)
 
 
 @app.teardown_appcontext

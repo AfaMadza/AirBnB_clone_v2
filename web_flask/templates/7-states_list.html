@@ -6,7 +6,7 @@
   <BODY>
     <H1>States</H1>
     <UL>
-      {% for state in state_data|dictsort %%}
+      {% for state in state_data|dictsort %}
       <LI>{{ state[1] }}<B>{{ state[0] }}</B></LI>
       {% endfor %}
     </UL>
