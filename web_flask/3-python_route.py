@@ -33,9 +33,13 @@ def cisfun(text):
     new_str = text.replace("_", " ")
     return 'C %s' % new_str
 
+
 @app.route('/python')
 @app.route('/python/<text>')
 def pycool(text="is cool"):
+    """
+    Returns specified response
+    """
     new_str = text.replace("_", " ")
     return 'Python %s' % new_str
 
